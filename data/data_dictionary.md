@@ -16,27 +16,27 @@ This document describes the variables used in the marine N₂ fixation predictio
 
 ### 🌊 Physical and Biogeochemical Variables
 
-* **MLD** : Mixed Layer Depth (m). Indicates upper ocean stratification.
+* **MLD** : Mixed Layer Depth (m). Indicates upper ocean stratification. [https://mixedlayer.ucsd.edu/]
 
 * **DEPTH (m)**: Sampling depth in meters.
 
-* **T** : In situ temperature (°C) at depth.
+* **T** : In situ temperature (°C) at depth. [https://www.ncei.noaa.gov/access/world-ocean-atlas-2023/bin/woa23.pl?parameterOption=t]
 
-* **SST(m)** : Sea Surface Temperature (°C).
+* **SST(m)** : Sea Surface Temperature (°C). [https://www.ncei.noaa.gov/products/avhrr-pathfinder-sst]
 
-* **salinity**: Seawater salinity (PSU).
+* **salinity**: Seawater salinity (PSU). [https://www.ncei.noaa.gov/access/world-ocean-atlas-2023/bin/woa23.pl?parameterOption=s]
 
-* **dissolved_oxygen**: Dissolved oxygen concentration (μmol/kg) at depth.
+* **dissolved_oxygen**: Dissolved oxygen concentration (μmol/kg) at depth. [https://www.ncei.noaa.gov/access/world-ocean-atlas-2023/bin/woa23oxnu.pl?parameterOption=o]
 
 * **log_CHL**: Log-transformed chlorophyll concentration. Proxy for phytoplankton biomass.
 
 * **PAR(m)**: Photosynthetically Active Radiation (μE m⁻² s⁻¹).
 
-* **log_N**: Log-transformed nitrate concentration.
+* **log_N**: Log-transformed nitrate concentration. [https://www.ncei.noaa.gov/access/world-ocean-atlas-2023/bin/woa23oxnu.pl?parameterOption=n]
 
-* **log_P**: Log-transformed phosphate concentration.
+* **log_P**: Log-transformed phosphate concentration. [https://www.ncei.noaa.gov/access/world-ocean-atlas-2023/bin/woa23oxnu.pl?parameterOption=p]
 
-* **log_Fe**: Log-transformed dissolved iron concentration at depth.
+* **log_Fe**: Log-transformed dissolved iron concentration at depth.[https://zenodo.org/records/6994318]
 
 ---
 
