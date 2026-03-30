@@ -14,7 +14,7 @@ This document describes the variables used in the marine N₂ fixation predictio
 
 ## 📌 Feature Variables
 
-### 🌊 Physical Variables
+### 🌊 Physical and Biogeochemical Variables
 
 * **MLD** : Mixed Layer Depth (m). Indicates upper ocean stratification.
 
@@ -23,10 +23,6 @@ This document describes the variables used in the marine N₂ fixation predictio
 * **T** : In situ temperature (°C) at depth.
 
 * **SST(m)** : Sea Surface Temperature (°C).
-
----
-
-### 🧪 Biogeochemical Variables
 
 * **salinity**: Seawater salinity (PSU).
 
