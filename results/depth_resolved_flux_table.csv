@@ -1,0 +1,5 @@
+Models,North Atlantic,South Atlantic,North Pacific,South Pacific,Indian Ocean,Global
+LR,10.98,9.11,26.17,35.83,28.01,119.68
+RF,18.51,12.77,35.29,42.55,21.24,136.82
+BHLR,34.32,55.04,57.35,43.14,40.56,248.1
+TabPFN,17.4,12.49,25.87,26.52,21.79,108.64
