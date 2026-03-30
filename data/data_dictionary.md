@@ -4,8 +4,7 @@ This document describes the variables used in the marine N₂ fixation predictio
 
 ## 📌 Target Variable
 
-* **log_y**
-  Log-transformed total nitrogen fixation rate.
+* **log_y**: Log-transformed total nitrogen fixation rate.
 
   * Original unit: μmol N m⁻³ d⁻¹
   * Transformation: log10
@@ -17,42 +16,31 @@ This document describes the variables used in the marine N₂ fixation predictio
 
 ### 🌊 Physical Variables
 
-* **MLD**
-  Mixed Layer Depth (m). Indicates upper ocean stratification.
+* **MLD** : Mixed Layer Depth (m). Indicates upper ocean stratification.
 
-* **DEPTH (m)**
-  Sampling depth in meters.
+* **DEPTH (m)**: Sampling depth in meters.
 
-* **T**
-  In situ temperature (°C).
+* **T** : In situ temperature (°C) at depth.
 
-* **SST(m)**
-  Sea Surface Temperature (°C).
+* **SST(m)** : Sea Surface Temperature (°C).
 
 ---
 
 ### 🧪 Biogeochemical Variables
 
-* **salinity**
-  Seawater salinity (PSU).
+* **salinity**: Seawater salinity (PSU).
 
-* **dissolved_oxygen**
-  Dissolved oxygen concentration (μmol/kg).
+* **dissolved_oxygen**: Dissolved oxygen concentration (μmol/kg) at depth.
 
-* **log_CHL**
-  Log-transformed chlorophyll concentration. Proxy for phytoplankton biomass.
+* **log_CHL**: Log-transformed chlorophyll concentration. Proxy for phytoplankton biomass.
 
-* **PAR(m)**
-  Photosynthetically Active Radiation (μE m⁻² s⁻¹).
+* **PAR(m)**: Photosynthetically Active Radiation (μE m⁻² s⁻¹).
 
-* **log_N**
-  Log-transformed nitrate concentration.
+* **log_N**: Log-transformed nitrate concentration.
 
-* **log_P**
-  Log-transformed phosphate concentration.
+* **log_P**: Log-transformed phosphate concentration.
 
-* **log_Fe**
-  Log-transformed dissolved iron concentration.
+* **log_Fe**: Log-transformed dissolved iron concentration at depth.
 
 ---
 
@@ -70,6 +58,7 @@ This document describes the variables used in the marine N₂ fixation predictio
 ### ⏳ Temporal Features (Cyclical Encoding)
 
 * **time_sin, time_cos**
+
   Cyclical encoding of month:
 
   * sin(2π·month/12), cos(2π·month/12)
