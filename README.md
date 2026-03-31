@@ -150,14 +150,35 @@ For Depth-resolved global annual N2 fixation prediction, due to the limitation o
 - Preparing the manuscript for journal submission
 
 
-### 🚀 Getting Started
-To explore the model architectures using the provided sample data:
-```bash
-git clone https://github.com/PandaSun-43/Bayesian-ML-for-Depth-Resolved-N2-Fixation.git
-cd Bayesian-ML-for-Depth-Resolved-N2-Fixation
-pip install -r requirements.txt
+### 📁 Repository Structure
 
-Run the evaluation pipeline on sample data
-python src/evaluation.py
-```
+This repository is designed as a research showcase. While full raw datasets are not included, 
+all modeling workflows, evaluation pipelines, and visual outputs are fully documented and reproducible using the provided sample data.
+
+
+```bash
+Bayesian-ML-for-Depth-Resolved-N2-Fixation/
+├── README.md
+├── requirements.txt
+├── data/
+│ ├── sample_data.csv # Synthetic/sample data for demonstration
+│ └── data_dictionary.md # Description of all variables
+├── notebooks/
+│ ├── 01_eda_and_spatial_mapping.ipynb
+│ └── 02_model_results_visualization.ipynb
+├── src/
+│ ├── data_processing.py  # Depth integration (0–80 m)（v.1.0)/(0-200)(updated version)
+│ ├── models/
+│ │ ├── bayesian_hlr.py # Bayesian hierarchical model (PyMC)
+│ │ ├── ml_baselines.py # RF / SVR baselines
+│ │ └── tabpfn_model.py # TabPFN inference
+│ └── evaluation.py # Model evaluation + uncertainty metrics
+└── results/
+│ ├── Model_Comparison_4_Models.png
+│ ├── Spatial_Distribution_Depth_vs_Surface.png
+│ ├── depth_profile_models_0_1000m.png
+│ ├── posterior_distributions.png
+│ ├── depth_resolved_flux_table.csv
+│ ├── surface_model_flux_table.csv
+│ └── model_performance_metrics.csv
 ```
