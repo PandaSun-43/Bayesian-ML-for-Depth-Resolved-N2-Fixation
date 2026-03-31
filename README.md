@@ -36,7 +36,7 @@ The model predicts the natural log of N₂ fixation ($\log y$) based on 16 envir
 ### Zero-Shot Probabilistic Inference via TabPFN
 While our Bayesian Hierarchical model elegantly handled spatial heterogeneity, the fundamental challenge of extreme data sparsity remained in certain deep-ocean strata. 
 
-To address this, we integrated TabPFN (Prior-Data Fitted Network), a cutting-edge foundation model for tabular data.
+To address this, we integrated TabPFN (Prior-Data Fitted Network), a cutting-edge foundation model for tabular data. More information can be found here: https://github.com/PriorLabs/TabPFN?tab=readme-ov-file.
 
 ```mermaid
 graph TD
