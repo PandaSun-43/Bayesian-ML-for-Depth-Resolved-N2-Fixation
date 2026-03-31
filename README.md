@@ -1,6 +1,7 @@
 ## 🌊📊 Bayesian and Data-Driven Modeling of Marine Nitrogen Fixation
 
-Note: This repository contains the methodology, codebase structure, and selected visualizations for my Signature Work (First-authored manuscript in preparation). 
+Note: This repository contains the methodology, codebase structure, and selected visualizations for my Signature Work (part of the manuscript in preparation). 
+
 Full raw datasets are withheld pending publication, but sample data and fully reproducible pipelines are provided.
 
 ### 📌 Project Overview
@@ -124,16 +125,23 @@ The `results/` folder contains all generated figures and tables:
 
 ---
 
-#### 3. Depth-Resolved Structure
+#### 3. Depth-Resolved Structure Across Models
+
+A critical limitation of previous studies was the reliance on surface-only models, completely ignoring the complex vertical distribution of biological activity. We evaluated four distinct model architectures to reconstruct the continuous depth profiles of N₂ fixation from the surface down to 1000 meters. 
+
+For Depth-resolved global annual N2 fixation prediction, due to the limitation of different variables, now we successfully developed it across 0-80m (v.1.0) and are extending it to 0-200m.
+
+![Depth Profile](results/Depth_Profile_Models.png)
+*Figure 5: Predicted vs. Observed vertical depth profiles (0-1000m) across four model architectures. The x-axis represents the N₂ fixation rate, and the y-axis represents depth.*
+
+
 ![Depth Profile](results/depth_maps_BHLR.png)
-*Figure 5: Depth-resolved (0-80 m, v.1.0) global annual N2 fixation predicted by BHLR. Figures are shown on a logarithmic scale.*
+*Figure 6: Depth-resolved (0-80 m, v.1.0) global annual N2 fixation predicted by BHLR. Figures are shown on a logarithmic scale.*
 
 
 ![Depth Profile](results/depth_maps_TabPFN.png)
+*Figure 7: Depth-resolved (0-80 m, v.1.0) global annual N2 fixation predicted by TabPFN. Figures are shown on a logarithmic scale.*
 
-*Figure 6: Depth-resolved (0-80 m, v.1.0) global annual N2 fixation predicted by TabPFN. Figures are shown on a logarithmic scale.*
-
-   
 
 ### 🔭 Ongoing Work
 
