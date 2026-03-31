@@ -49,7 +49,7 @@ The `results/` folder contains all generated figures and tables:
 
 ![Model Comparison](results/Model_Comparison_4_Models.png)
 
-Figure 1. Comparison of predictive performance across four models (LR, RF, BHLR, TabPFN). TabPFN achieves the highest accuracy under sparse data conditions.
+*Figure 1. Comparison of predictive performance across four models (LR, RF, BHLR, TabPFN). TabPFN achieves the highest accuracy under sparse data conditions.*
 
 ---
 
@@ -57,7 +57,7 @@ Figure 1. Comparison of predictive performance across four models (LR, RF, BHLR,
 
 ![Spatial Distribution](results/Spatial_Distribution_Depth_vs_Surface.png)
 
-Figure 2. Comparison between surface-only and depth-resolved predictions, highlighting substantial differences in spatial patterns and total flux estimation.
+*Figure 2. Comparison between surface-only and depth-resolved predictions, highlighting substantial differences in spatial patterns and total flux estimation.*
 
 ---
 
@@ -65,17 +65,30 @@ Figure 2. Comparison between surface-only and depth-resolved predictions, highli
 
 ![Depth Profile](results/depth_maps_TabPFN.png)
 
-Figure 3. Depth-resolved (0-80 m, v.1.0) global annual N2 fixation predicted by TabPFN. Figures are shown on a logarithmic scale. 
+*Figure 3. Depth-resolved (0-80 m, v.1.0) global annual N2 fixation predicted by TabPFN. Figures are shown on a logarithmic scale. *
 
 
 ---
 
-#### 4. Uncertainty Quantification (Bayesian Model)
+#### 4. Bayesian Hierarchical Model
+To properly model the complex spatiotemporal dynamics and address the severe data sparsity in certain oceanic regions, a **Bayesian Hierarchical Linear Regression (BHLR)** was implemented using PyMC. 
 
-![Posterior](results/posterior_distributions.png)
+![Bayesian Directed Acyclic Graph](results/bayesian_dag.png)
+*Figure 4: Directed Acyclic Graph (DAG) of the BHLR model. The hierarchical structure allows information borrowing across different oceanic biomes, enhancing predictive stability in data-scarce regions.*
 
-Figure 4. Posterior distributions of model parameters across six biological groups.
+#### Model Architecture & Statistical Robustness
+The model predicts the natural log of N₂ fixation ($\log y$) based on 16 environmental and spatiotemporal features ($X$). Key statistical designs include:
 
+1. **Biome-Level Hierarchy (Analogous to Patient Sub-populations):** 
+   Instead of fitting a single global model (ignoring regional heterogeneity) or completely separate models for each biome (prone to overfitting in sparse regions), we structured intercepts ($\alpha$) and slopes ($\beta$) hierarchically. 
+   * This structure allows "partial pooling" of information. In Biostatistics, this is mathematically identical to adjusting for **multi-center clinical trials** or modeling diverse **patient demographic cohorts**, where baseline risks and treatment effects vary by group.
+   
+2. **Non-Centered Parameterization for MCMC Efficiency:**
+   To overcome the classic funnel geometry problem in hierarchical Bayesian sampling, we employed a **non-centered parameterization**. Group-level parameters were modeled deterministically via standard normal offsets (e.g., $\alpha_{g} = \mu_\alpha + \alpha_{offset, g} \cdot \sigma_\alpha$). This ensured stable Hamiltonian Monte Carlo (HMC) sampling, yielding zero divergences and high effective sample sizes (ESS), guaranteeing the reliability of our posterior distributions.
+
+3. **Interpretable Uncertainty:**
+   Unlike point-estimate outputs from traditional ML baselines, our model produces full **posterior predictive distributions**. This strict quantification of uncertainty is crucial for assessing model confidence—a critical requirement not only in environmental forecasting but also in high-stakes **clinical risk prediction modeling**.
+   
 
 ### 🔭 Ongoing Work
 
