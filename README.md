@@ -126,12 +126,12 @@ The `results/` folder contains all generated figures and tables:
 
 #### 3. Depth-Resolved Structure
 ![Depth Profile](results/depth_maps_BHLR.png)
-*Figure 5: Depth-resolved (0-80 m, v.1.0) global annual N2 fixation predicted by BHLR. Figures are shown on a logarithmic scale. *
+*Figure 5: Depth-resolved (0-80 m, v.1.0) global annual N2 fixation predicted by BHLR. Figures are shown on a logarithmic scale.*
 
 
 ![Depth Profile](results/depth_maps_TabPFN.png)
 
-*Figure 6: Depth-resolved (0-80 m, v.1.0) global annual N2 fixation predicted by TabPFN. Figures are shown on a logarithmic scale. *
+*Figure 6: Depth-resolved (0-80 m, v.1.0) global annual N2 fixation predicted by TabPFN. Figures are shown on a logarithmic scale.*
 
    
 
