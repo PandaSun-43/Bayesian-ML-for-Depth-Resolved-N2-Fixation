@@ -65,7 +65,7 @@ Figure 2. Comparison between surface-only and depth-resolved predictions, highli
 
 ![Depth Profile](results/depth_maps_TabPFN.png)
 
-Figure 3. Depth-resolved (0-80 m) global annual N2 fixation predicted by TabPFN. Figures are shown on a logarithmic scale. 
+Figure 3. Depth-resolved (0-80 m, v.1.0) global annual N2 fixation predicted by TabPFN. Figures are shown on a logarithmic scale. 
 
 
 ---
@@ -77,7 +77,13 @@ Figure 3. Depth-resolved (0-80 m) global annual N2 fixation predicted by TabPFN.
 Figure 4. Posterior distributions of model parameters across six biological groups.
 
 
-  
+### 🔭 Ongoing Work
+
+- Extending depth-resolved analysis from surface layers to full 0–200 m water column with improved visualization and integration schemes  
+- Adapting TabPFN to spatiotemporal structured inputs for enhanced representation learning  
+- Preparing the manuscript for journal submission
+
+
 ### 🚀 Getting Started
 To explore the model architectures using the provided sample data:
 ```bash
