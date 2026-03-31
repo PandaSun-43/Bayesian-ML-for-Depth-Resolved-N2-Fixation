@@ -15,7 +15,7 @@ We contrasted traditional machine learning models (Linear Regression, Random For
 To properly model the complex spatiotemporal dynamics and address the severe data sparsity in certain oceanic regions, a **Bayesian Hierarchical Linear Regression (BHLR)** was implemented using PyMC. 
 
 ![Bayesian Directed Acyclic Graph](results/bayesian_hierarchical_dag.png)
-*Figure 4: Directed Acyclic Graph (DAG) of the BHLR model. The hierarchical structure allows information borrowing across different oceanic biomes, enhancing predictive stability in data-scarce regions.*
+*Figure 1: Directed Acyclic Graph (DAG) of the BHLR model. The hierarchical structure allows information borrowing across different oceanic biomes, enhancing predictive stability in data-scarce regions.*
 
 #### Model Architecture & Statistical Robustness
 The model predicts the natural log of N₂ fixation ($\log y$) based on 16 environmental and spatiotemporal features ($X$). Key statistical designs include:
@@ -32,6 +32,46 @@ The model predicts the natural log of N₂ fixation ($\log y$) based on 16 envir
    Unlike point-estimate outputs from traditional ML baselines, our model produces full **posterior predictive distributions**. This strict quantification of uncertainty is crucial for assessing model confidence.
 
 
+### Zero-Shot Probabilistic Inference via TabPFN
+While our Bayesian Hierarchical model elegantly handled spatial heterogeneity, the fundamental challenge of extreme data sparsity remained in certain deep-ocean strata. 
+
+To address this, we integrated TabPFN (Prior-Data Fitted Network), a cutting-edge foundation model for tabular data.
+
+```mermaid
+graph TD
+    classDef input fill:#e1f5fe,stroke:#01579b,stroke-width:2px;
+    classDef model fill:#fff3e0,stroke:#e65100,stroke-width:2px;
+    classDef output fill:#e8f5e9,stroke:#1b5e20,stroke-width:2px;
+
+    subgraph Inputs ["Data Inputs (Sparse Regimes)"]
+        A["Training Data; X_train: Env Variables (SST, PAR, CHL, Depth...); y_train: N₂ Fixation Rates"]:::input
+        B["Test Data; X_test: New Environmental Conditions"]:::input
+    end
+
+    subgraph TabPFN_Architecture ["TabPFN: Prior-Data Fitted Network"]
+        C{"Pre-trained Transformer; Trained offline on synthetic priors"}:::model
+    end
+
+    subgraph Outputs ["Probabilistic Inference"]
+        D["Posterior Predictive Distribution; P(y_test | X_train, y_train, X_test)"]:::output
+        E["Point Estimates; Expected N₂ Fixation"]:::output
+        F["Uncertainty Bounds; Confidence Intervals"]:::output
+    end
+
+    A -->|Context| C
+    B -->|Query| C
+    C -->|Single Forward Pass; Zero-Shot / No Gradient Descent| D
+    D --> E
+    D --> F
+
+```
+*Figure 2: Flowchart of TabPFN Application to Marine Data.*
+
+#### Why TabPFN? (Justification & Transferability)
+
+- Robustness in Small-Sample Regimes: Marine in-situ observations are historically sparse ($N < 1,000$). Traditional Deep Learning severely overfits here. TabPFN, acting as an approximate Bayesian predictor, natively excels in these low-data environments, pushing our predictive $R^2$ to 0.71 (a ~20% improvement over Random Forest).
+
+- In-Context Learning (Zero-Shot): By eliminating the need for hyperparameter optimization and cross-validation loops, TabPFN avoids data leakage and overfitting on small training sets. This is vital when building models on limited patient registries where preserving data for validation is crucial.
 
 
 ### 🧬 Methodological Transferability
@@ -72,7 +112,7 @@ The `results/` folder contains all generated figures and tables:
 
 ![Model Comparison](results/Model_Comparison_4_Models.png)
 
-*Figure 1. Comparison of predictive performance across four models (LR, RF, BHLR, TabPFN). TabPFN achieves the highest accuracy under sparse data conditions.*
+*Figure 3: Comparison of predictive performance across four models (LR, RF, BHLR, TabPFN). TabPFN achieves the highest accuracy under sparse data conditions.*
 
 ---
 
@@ -80,18 +120,18 @@ The `results/` folder contains all generated figures and tables:
 
 ![Spatial Distribution](results/Spatial_Distribution_Depth_vs_Surface.png)
 
-*Figure 2. Comparison between surface-only and depth-resolved predictions, highlighting substantial differences in spatial patterns and total flux estimation.*
+*Figure 4: Comparison between surface-only and depth-resolved predictions, highlighting substantial differences in spatial patterns and total flux estimation.*
 
 ---
 
 #### 3. Depth-Resolved Structure
 ![Depth Profile](results/depth_maps_BHLR.png)
-*Figure 3. Depth-resolved (0-80 m, v.1.0) global annual N2 fixation predicted by BHLR. Figures are shown on a logarithmic scale. *
+*Figure 5: Depth-resolved (0-80 m, v.1.0) global annual N2 fixation predicted by BHLR. Figures are shown on a logarithmic scale. *
 
 
 ![Depth Profile](results/depth_maps_TabPFN.png)
 
-*Figure 4. Depth-resolved (0-80 m, v.1.0) global annual N2 fixation predicted by TabPFN. Figures are shown on a logarithmic scale. *
+*Figure 6: Depth-resolved (0-80 m, v.1.0) global annual N2 fixation predicted by TabPFN. Figures are shown on a logarithmic scale. *
 
    
 
